@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tugas 1 Minggu 3</title>
+</head>
+<body>
+    <form action="#" method="post">
+        <table>
+            <tr>
+                <!-- Readonly -->
+                <td><label for="input1">Input 1</label></td>
+                <td><input type="text" id="input1" name="input1" value="Nilai Tetap" readonly></td>
+                <td class="keterangan">Value tetap, dapat diklik, dan tidak bisa diganti</td>
+            </tr>
+            <tr>
+                <!-- Maksimal 5 karakter (maxlength) -->
+                <td><label for="input2">Input 2</label></td>
+                <td><input type="text" id="input2" name="input2" maxlength="5"></td>
+                <td class="keterangan">Maksimal 5 karakter</td>
+            </tr>
+            <tr>
+                <!--Gabisa diisi-->
+                <td><label for="input3">Input 3</label></td>
+                <td><input type="text" id="input3" name="input3" disabled></td>
+                <td class="keterangan">Tidak dapat diisi</td>
+            </tr>
+            <tr>
+                <!-- Wajib diisi -->
+                <td><label for="input4">Input 4</label></td>
+                <td><input type="text" id="input4" name="input4" required></td>
+                <td class="keterangan">Wajib diisi</td>
+            </tr>
+            <tr>
+                <!-- Cuma bia diisi NIM
+                pattern -> "^[a-z0-9]{9}$" berarti tepat 9 karakter yang terdiri
+                dari huruf kecil (a-z) dan/atau angka (0-9) saja.
+                maxlength="9" mencegah pengetikan melebihi 9 karakter.-->
+                <td><label for="input5">Input 5</label></td>
+                <td><input type="text" id="input5" name="input5" maxlength="9" pattern="^[a-z0-9]{9}$" title="Harus 9 karakter, tidak boleh simbol/kapital, hanya huruf kecil"></td>
+                <td class="keterangan">9 karakter, hanya huruf kecil dan angka</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Kirim"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
