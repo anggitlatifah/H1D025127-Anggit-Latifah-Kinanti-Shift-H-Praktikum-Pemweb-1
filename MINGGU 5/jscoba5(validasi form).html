@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktikum Pemrograman Web</title>
+</head>
+<body>
+    <form method="POST" name="frmbuku" onSubmit="return cek()">
+        <table>
+            <tr>
+                <td>Nama</td>
+                <td><input id="fieldnama" type="text" name="nama"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" name="kirim" value="Kirim">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <script>
+        function cek(){
+            const fieldnama = document.getElemenById("fieldnama");
+            if (fieldnama.value == ""){
+                alert("Nama harus diisi!");
+                fieldnama.focus();
+                return false;
+            }
+            alert("Pengisian form sukses!");
+            return true;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <title>Latihan - Validasi Form</title>
+        <style>
+            body { font-family: "Times New Roman", serif; margin: 40px; }
+            td { padding: 3px 6px; vertical-align: top; }
+            input[type=text] { width: 250px; }
+            textarea { width: 230px; height: 90px; }
+        </style>
+    </head>
+    <body>
+        <form onsubmit="return validasi()">
+            <table>
+                <tr>
+                    <td>Nama</td>
+                    <td>:</td>
+                    <td><input type="text" id="nama"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td>:</td>
+                    <td><input type="text" id="email"></td>
+                </tr>
+                <tr>
+                    <td>Komentar</td>
+                    <td>:</td>
+                    <td><textarea id="komentar"></textarea></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><input type="submit" value="Simpan"></td>
+                </tr>
+            </table>
+        </form>
+        <script>
+            function validasi() {
+                var nama = document.getElementById("nama").value.trim();
+                var email = document.getElementById("email").value.trim();
+                var komentar = document.getElementById("komentar").value.trim();
+                
+                if (nama === "" || email === "" || komentar === "") {
+                    alert("Semua field harus diisi!");
+                    return false;
+                }
+                if (!/^[A-Za-z\s]+$/.test(nama)) {
+                    alert("Nama tidak boleh mengandung angka atau simbol!");
+                    return false;
+                }
+                alert("Data berhasil disimpan!");
+                return true;
+            }
+        </script>
+    </body>
+</html>

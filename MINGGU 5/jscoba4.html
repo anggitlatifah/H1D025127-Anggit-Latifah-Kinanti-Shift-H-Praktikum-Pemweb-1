@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Praktikum Pemrograman Web</title>
+</head>
+<body>
+    <img name="img1" src="gambar1.jpg" style="width: 100px; height: 100px;" onMouseOver="ganti_gambar2()" onMouseOut="ganti_gambar1()">
+    <script>
+        function ganti_gambar2() {
+            document.img1.src = "gambar2.jpg";
+        }
+        function ganti_gambar1() {
+            document.img1.src = "gambar1.jpg";
+        }
+    </script>
+</body>
+</html>

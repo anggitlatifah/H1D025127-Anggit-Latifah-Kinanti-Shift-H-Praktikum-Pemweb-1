@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 2 Kalkulator</title>
+</head>
+<body>
+    <h2>Kalkulator Sederhana</h2>
+    <input type="number" id="angka1" placeholder="Angka pertama">
+    <input type="number" id="angka2" placeholder="Angka kedua">
+    <br><br>
+    <button onClick="hitung('+')">+</button>
+    <button onClick="hitung('-')">-</button>
+    <button onClick="hitung('*')">*</button>
+    <button onClick="hitung('/')">/</button>
+    <h3 id="hasil"></h3>
+
+    <script>
+        function hitung(operasi){
+            var a = parseFloat(document.getElementById("angka1").value);
+            var b = parseFloat(document.getElementById("angka2").value);
+            var hasil = document.getElementById("hasil");
+            var total;
+
+            if (isNaN(a) || isNaN(b)){
+                hasil.innerHTML = "Isi kedua angka dulu";
+                return;
+            }
+            if (operasi === '+') total = a + b;
+            else if (operasi === '-') total = a - b;
+            else if (operasi === '*') total = a * b;
+            else {
+                if(b === 0){
+                    hasil.innerHTML = "Tidak bisa dibagi nol";
+                    return;
+                }
+                total = a / b;
+            }
+            hasil.innerHTML = "Hasil: " + a;
+        }
+    </script>
+</body>
+</html>

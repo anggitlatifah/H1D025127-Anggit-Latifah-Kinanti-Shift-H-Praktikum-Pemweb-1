@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas  Konversi Nilai</title>
+</head>
+<body>
+    <h2>App Pengambil Keputusan Nilai</h2>
+    Masukkan nilai (0-100):
+    <input type="number" id="nilai">
+    <button onClick="hitungNilai()">Proses</button>
+    <h3 id="hasil"></h3>
+    <script>
+        function hitungNilai(){
+            var nilai = parseFloat(document.getElementById("nilai").value);
+            var hasil = document.getElementById("hasil");
+            var grade;
+
+            if (isNaN(nilai) || nilai < 0 || nilai > 100){
+                hasil.innerHTML = "Masukkan nilai antara 0 sampai 100.";
+                return;
+            }
+            if (nilai <=20) grade = "E";
+            else if (nilai <=40) grade = "D";
+            else if (nilai <=60) grade = "C";
+            else if (nilai <=80) grade = "B";
+            else grade = "A";
+            hasil.innerHTML = "Nilai" + nilai + " = Grade " + grade;
+        }
+    </script>
+</body>
+</html>
