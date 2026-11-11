@@ -1,0 +1,52 @@
+<?php
+// kurir/update.php -> UPDATE: mengubah data kurir (sama seperti barang/update.php)
+include("../koneksi.php");
+
+// BAGIAN 1: simpan perubahan
+if (isset($_POST['update'])) {
+    $id = intval($_POST['id']);
+    $nama = mysqli_real_escape_string($koneksi, $_POST['nama']);
+    $nomor_hp = mysqli_real_escape_string($koneksi, $_POST['nomor_hp']);
+
+    // UPDATE ... WHERE id : hanya baris dengan id tersebut yang berubah
+    mysqli_query($koneksi, "UPDATE kurir SET nama='$nama', nomor_hp='$nomor_hp' WHERE id=$id");
+    header("Location: index.php");
+    exit;
+}
+
+// BAGIAN 2: ambil data lama untuk mengisi form
+$id = intval($_GET['id']);
+$result = mysqli_query($koneksi, "SELECT * FROM kurir WHERE id=$id");
+$row = mysqli_fetch_array($result);
+if (!$row) {
+    header("Location: index.php");
+    exit;
+}
+?>
+<!DOCTYPE html>
+<html lang="id">
+<head><title>Edit Kurir</title></head>
+<body>
+    <h1>Edit Kurir</h1>
+    <a href="index.php">Batal</a>
+    <br><br>
+    <form method="post" action="update.php">
+        <table>
+            <tr>
+                <td>Nama</td>
+                <td><input type="text" name="nama" maxlength="100" required
+                           value="<?php echo htmlspecialchars($row['nama']); ?>"></td>
+            </tr>
+            <tr>
+                <td>Nomor HP</td>
+                <td><input type="text" name="nomor_hp" pattern="[0-9]{8,15}" title="Hanya angka, 8-15 digit" maxlength="15" required
+                           value="<?php echo htmlspecialchars($row['nomor_hp']); ?>"></td>
+            </tr>
+            <tr>
+                <td><input type="hidden" name="id" value="<?php echo $row['id']; ?>"></td>
+                <td><input type="submit" name="update" value="Update"></td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
